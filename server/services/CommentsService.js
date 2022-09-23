@@ -10,6 +10,8 @@ class CommentsService {
 
   }
 
+
+  //FIXME needs to connect to post ID 
   async createComment(formData) {
     // const post = await this.getPostById(formData.postId)
     const comment = await dbContext.Comments.create(formData)

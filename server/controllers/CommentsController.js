@@ -24,7 +24,7 @@ export class CommentsController extends BaseController {
     }
   }
 
-  // TODO add create for comments 
+
   async createComment(req, res, next) {
     try {
       const formData = {

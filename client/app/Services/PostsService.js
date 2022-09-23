@@ -1,4 +1,8 @@
 class PostsService {
+  async getPosts() {
+    
+  }
+
   constructor() {
 
   }

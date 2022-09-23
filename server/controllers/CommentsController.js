@@ -1,4 +1,5 @@
 import { Auth0Provider } from "@bcwdev/auth0provider";
+import { commentsService } from "../services/CommentsService.js";
 import BaseController from "../utils/BaseController.js";
 import { BadRequest } from "../utils/Errors.js";
 
@@ -16,7 +17,7 @@ export class CommentsController extends BaseController {
       if (!req.query.goblinId) {
         throw new BadRequest('Must be globlin to comment')
       }
-      const goblins = await CommentService.getGobs(req.query)
+      const poster = await commentsService.getComments(req.query)
       res.send()
     } catch (error) {
       next(error)
@@ -24,7 +25,20 @@ export class CommentsController extends BaseController {
   }
 
   // TODO add create for comments 
+  async createComment(req, res, next) {
+    try {
+      const formData = {
+        postId: req.body.postId,
+        goblinId: res.userInfo.id
+      }
+      const comment = await commentsService.doComment(formData)
+      res.send(comment)
 
+    } catch (error) {
+      next(error)
+    }
+
+  }
 
 
 

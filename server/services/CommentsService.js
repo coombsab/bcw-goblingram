@@ -22,7 +22,13 @@ class CommentsService {
     return comment
   }
 
+ async createUpVote() {
+    
+  }
 
+  async createDownVote() {
+    
+  }
 
 
 

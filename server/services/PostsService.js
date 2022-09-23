@@ -49,6 +49,14 @@ class PostsService {
     await post.save()
     return post
   }
+
+  async createUpVote() {
+    
+  }
+
+  async createDownVote() {
+    
+  }
 }
 
 

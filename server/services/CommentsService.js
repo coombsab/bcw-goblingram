@@ -2,22 +2,24 @@ import { dbContext } from "../db/DbContext.js";
 import { BadRequest } from "../utils/Errors.js";
 
 class CommentsService {
+  async getComments() {
+    const comments = await dbContext.Comments.find()
+    return comments
+  }
 
-  async getComments(query = {}) {
+  async getCommentsByPostId(query = {}) {
     const comment = await dbContext.Comments.find(query)
-      .populate('post').populate('goblin', 'comment')
+      .populate('post')
+      .populate('goblin', 'name picture')
     return comment
 
   }
 
-  //FIXME needs to connect to post ID 
   async createComment(formData) {
-    // const post = await this.postsService.getPostById(formData.postId)
     const comment = await dbContext.Comments.create(formData)
     await comment.populate('post')
-    await comment.populate('comments', 'poster')
+    await comment.populate('goblin', 'name picture')
     return comment
-
   }
 
 

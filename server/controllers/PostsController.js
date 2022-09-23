@@ -3,6 +3,7 @@ import { postsService } from "../services/PostsService.js"
 import BaseController from "../utils/BaseController.js"
 
 export class PostsController extends BaseController {
+
   constructor() {
     super("gg/api/posts")
     this.router

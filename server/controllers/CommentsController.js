@@ -9,7 +9,7 @@ export class CommentsController extends BaseController {
       .get("", this.getComments)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createComment)
-      .get('', this.getCommentsByPostId)
+      .get('/:postId', this.getCommentsByPostId)
 
   }
 
@@ -25,11 +25,8 @@ export class CommentsController extends BaseController {
 
   async getCommentsByPostId(req, res, next) {
     try {
-      if (!req.query.goblinId) {
-        throw new BadRequest('Must be a goblin to comment')
-      }
-      const goblins = await commentsService.getCommentsByPostId(req.query)
-      res.send(goblins)
+      const comments = await commentsService.getCommentsByPostId(req.params.postId)
+      res.send(comments)
     } catch (error) {
       next(error)
     }
@@ -38,7 +35,7 @@ export class CommentsController extends BaseController {
   async createComment(req, res, next) {
     try {
       const formData = req.body
-      req.body.id = req.params.id
+      formData.goblinId = req.userInfo.id
       const comment = await commentsService.createComment(formData)
       res.send(comment)
     } catch (error) {

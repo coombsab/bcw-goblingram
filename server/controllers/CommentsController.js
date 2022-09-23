@@ -7,13 +7,11 @@ export class CommentsController extends BaseController {
     super('api/comments')
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
-      .post('', this.create)
+      .post('', this.createComment)
       .get('', this.getComments)
 
   }
-  create(arg0, create) {
-    throw new Error("Method not implemented.");
-  }
+
   async getComments(req, res, next) {
     try {
       if (!req.query.goblinId) {
@@ -26,14 +24,14 @@ export class CommentsController extends BaseController {
     }
   }
 
-  // TODO add create for comments 
+
   async createComment(req, res, next) {
     try {
       const formData = {
         postId: req.body.postId,
         goblinId: res.userInfo.id
       }
-      const comment = await commentsService.doComment(formData)
+      const comment = await commentsService.createComment(formData)
       res.send(comment)
 
     } catch (error) {

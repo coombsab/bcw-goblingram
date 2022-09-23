@@ -19,6 +19,7 @@ CommentSchema.virtual('goblin', {
   ref: 'Account'
 })
 
+//FIXME this is causing problems 
 // CommentSchema.virtual('postId', {
 //   localField: 'postId',
 //   foreignField: '_id',

@@ -1,4 +1,5 @@
 import { dbContext } from "../db/DbContext.js";
+import { BadRequest } from "../utils/Errors.js";
 
 class CommentsService {
 
@@ -9,18 +10,17 @@ class CommentsService {
 
   }
 
-  async doComment(formData) {
-    // need to change goblins to post 
-    const post = await this.getPostById(formData.postId)
+
+  //FIXME needs to connect to post ID 
+  async createComment(formData) {
+    // const post = await this.getPostById(formData.postId)
     const comment = await dbContext.Comments.create(formData)
     await comment.populate('post')
     await comment.populate('comments', 'poster')
     return comment
 
   }
-  getPostById(postId) {
-    throw new Error("Method not implemented.");
-  }
+
 
 
 

@@ -28,7 +28,7 @@
       </div>
       <div class="row bg-dark text-light p-2">
         <div class="col-md-12 col-12 d-flex">
-          <button type="button" class="btn btn-success fs-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <button type="button" class="btn btn-success fs-3" data-bs-toggle="modal" data-bs-target="#addPostModal">
             Add Post!
           </button>
           <span class="px-5"></span>
@@ -116,8 +116,8 @@
                     and so cute!!!</p>
                 </div>
                 <div class="card-footer d-flex justify-content-between">
-                  <span id="comment-upvotes">UPVOTES</span>
-                  <span id="comment-downvotes">DOWNVOTES</span>
+                  <span id="comment-upvotes">⬆️<span>200</span></span>
+                  <span id="comment-downvotes">⬇️<span>200</span></span>
                 </div>
               </div>
               <!-- ANCHOR COMMENT CARD END -->
@@ -133,10 +133,10 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Add to the Gob Squad</h5>
+            <h5 class="modal-title">Add to the Gob Squad</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <form onsubmit="app.postController.addPost()">
+          <form onsubmit="app.postsController.createPost()">
             <div class="modal-body">
               <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="name" name="name" placeholder="Post Name">

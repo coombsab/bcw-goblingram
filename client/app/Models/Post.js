@@ -22,7 +22,7 @@ export class Post {
               <span id="post-downvotes" class="fs-3">⬇️</span><span>500</span>
             </div>
             <img
-              src="https://cdn.dribbble.com/users/528238/screenshots/16410846/media/7e5e6c526d24fafcdb96246196846f6d.png?compress=1&resize=400x300&vertical=top"
+              src="${this.imgUrl}"
               alt="" class="img-fluid rounded-top" id="post-image">
             <div class="card-body text-center d-flex justify-content-between">
               <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#addCommentModal">Add comment

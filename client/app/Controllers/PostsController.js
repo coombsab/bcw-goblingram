@@ -1,4 +1,4 @@
-import bootstrap from "bootstrap"
+
 import { appState } from "../AppState.js"
 import { postsService } from "../Services/PostsService.js"
 import { getFormData } from "../Utils/FormHandler.js"
@@ -13,7 +13,8 @@ function _drawPosts() {
 
 export class PostsController {
   constructor() {
-
+    this.getPosts()
+    appState.on('posts', _drawPosts)
   }
 
   async getPosts() {
@@ -21,26 +22,29 @@ export class PostsController {
       await postsService.getPosts()
     }
     catch (error) {
-      console.error('[functionName]', error)
+      console.error('[getPosts]', error)
       Pop.error(error.message)
     }
   }
 
-  async createPosts() {
+  async createPost() {
     try {
       // @ts-ignore
       window.event.preventDefault()
       // @ts-ignore
       const form = window.event.target
       const formData = getFormData(form)
-      await postsService.createPosts(formData)
+      console.log(formData)
+      await postsService.createPost(formData)
       // @ts-ignore
       form.reset()
+      // @ts-ignore
       const modal = bootstrap.Modal.getOrCreateInstance('addPostModal')
       modal.hide()
     } catch (error) {
       Pop.error(error.message)
     }
+
   }
 
   //TODO edit and delete 

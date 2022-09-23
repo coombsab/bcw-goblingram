@@ -16,11 +16,16 @@
 
 <body>
   <header>
-    <nav class="navbar navbar-dark navbar-expand bg-dark text-light">
+
+    <nav class="navbar navbar-dark navbar-expand bg-dark text-light p-3">
       <a class="navbar-brand" href="#">
-        <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""
-          loading="lazy">
-        <span class="ml-2">bcw-goblingram</span>
+        <img
+          src="https://steamuserimages-a.akamaihd.net/ugc/752592955306865547/AF918E6051EB84083B359382C622D3541ECDF4A6/?imw=268&imh=268&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true"
+          height="45" alt="" loading="lazy">
+        <div class="">
+          <div class="">GOBLINGRAM</div>
+          <button>Add Post!</button>
+        </div>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,19 +34,50 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <!-- NAVLINKS -->
+
         </div>
+      </div>
+      <div class="">
+        <h2 class="text-center">Filter By:</h2>
+        <button>Upvotes</button>
+        <button>Downvotes</button>
+        <button>Date</button>
       </div>
       <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
     </nav>
+
   </header>
+
+
   <main id="app">
     <div class="container-fluid">
-      <div class="row my-3">
-
-
+      <div class="row p-4" id="posts">
+        <div class="col-md-4">
+          <!-- ANCHOR CARD START  -->
+          <div class="card">
+            <div class="card-body d-flex justify-content-between">
+              <h4 class="text-center">POST NAME</h4>
+              <span>DATE/TIME POSTED</span>
+              <span>💖</span>
+              <span>UPVOTES</span>
+              <span>DOWNVOTES</span>
+            </div>
+            <img
+              src="https://cdn.dribbble.com/users/528238/screenshots/16410846/media/7e5e6c526d24fafcdb96246196846f6d.png?compress=1&resize=400x300&vertical=top"
+              alt="" class="img-fluid rounded-top">
+            <div class="card-body text-center d-flex justify-content-between">
+              <button>add comment
+              </button>
+              <button>view comments
+              </button>
+            </div>
+            <!-- <div class="card-footer ">
+            </div> -->
+          </div>
+          <!-- ANCHOR CARD START -->
+        </div>
       </div>
     </div>
-
   </main>
   <footer class="container-fluid bg-dark text-light">
     <div class="row text-center">
@@ -52,18 +88,19 @@
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="https://cdn.auth0.com/js/auth0-spa-js/1.22/auth0-spa-js.production.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/jakeoverall/auth0provider-client/browser/Auth0Provider.js"></script>
-  <script src="https://cdn.socket.io/4.1.1/socket.io.min.js"
-    integrity="sha384-cdrFIqe3RasCMNE0jeFG9xJHog/tgOVC1E9Lzve8LQN1g5WUHo0Kvk1mawWjxX7a"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js"
-    integrity="sha256-hw7v8jZF/rFEdx1ZHepT4D73AFTHLu/P9kEyrNesRyc=" crossorigin="anonymous"></script>
-
+  <span>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/1.22/auth0-spa-js.production.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/jakeoverall/auth0provider-client/browser/Auth0Provider.js"></script>
+    <script src="https://cdn.socket.io/4.1.1/socket.io.min.js"
+      integrity="sha384-cdrFIqe3RasCMNE0jeFG9xJHog/tgOVC1E9Lzve8LQN1g5WUHo0Kvk1mawWjxX7a"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js"
+      integrity="sha256-hw7v8jZF/rFEdx1ZHepT4D73AFTHLu/P9kEyrNesRyc=" crossorigin="anonymous"></script>
+  </span>
   <script src="app/App.js" type="module"></script>
 </body>
 

@@ -1,6 +1,6 @@
 import { Auth0Provider } from '@bcwdev/auth0provider'
 import BaseController from "../utils/BaseController.js";
-
+import { goblinsService } from "../services/GoblinsService.js";
 
 
 export class GoblinsController extends BaseController {
@@ -16,7 +16,7 @@ export class GoblinsController extends BaseController {
 
   async get(req, res, next) {
     try {
-      const goblins = await GoblinsService.getGobs()
+      const goblins = await goblinsService.getGobs()
       res.send(goblins)
     } catch (error) {
       next(error)
@@ -26,7 +26,7 @@ export class GoblinsController extends BaseController {
 
   async create(req, res, next) {
     try {
-      const goblin = await GoblinsService.createGob(req.body)
+      const goblin = await goblinsService.createGob(req.body)
       res.send(goblin)
     } catch (error) {
       next(error)
@@ -38,7 +38,7 @@ export class GoblinsController extends BaseController {
   // NOTE Line 41 req.userInfo might be the wrong convention idk lol - Sam
   async delete(req, res, next) {
     try {
-      const deletedGob = await GoblinsService.deleteGob(req.params.id, req.userInfo)
+      const deletedGob = await goblinsService.deleteGob(req.params.id, req.userInfo)
       res.send(deletedGob)
     } catch (error) {
       next(error)

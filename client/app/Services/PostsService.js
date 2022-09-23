@@ -1,6 +1,7 @@
 import { Server } from "socket.io"
 import { appState } from "../AppState.js";
 import { Post } from "../Models/Post.js";
+import { Pop } from "../Utils/Pop.js";
 import { server } from "./AxiosService.js"
 
 class PostsService {
@@ -17,7 +18,12 @@ class PostsService {
     appState.posts = [...appState.posts, new Post(res.data)]
 
   }
-
+  async deletePost(id) {
+    const yes = await Pop.confirm('Delete the Car?')
+    if (!yes) { return }
+    await server.delete(`api/gg/posts/${id}`)
+    appState.posts = appState.posts.filter(p => p.id != id)
+  }
 
 
 }

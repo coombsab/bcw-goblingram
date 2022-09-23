@@ -44,6 +44,18 @@ export class PostsController {
   }
 
   //TODO edit and delete 
+  async deletePost(id) {
+    try {
+      await postsService.deletePost(id)
+    } catch (error) {
+      console.error('[DeletingPost]', error)
+      Pop.error(error)
+    }
+
+
+  }
+
+
 
 }
 

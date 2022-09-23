@@ -15,10 +15,10 @@ export class CommentsController extends BaseController {
   async getComments(req, res, next) {
     try {
       if (!req.query.goblinId) {
-        throw new BadRequest('Must be globlin to comment')
+        throw new BadRequest('Must be a goblin to comment')
       }
       const goblins = await commentsService.getComments(req.query)
-      res.send()
+      res.send(goblins)
     } catch (error) {
       next(error)
     }

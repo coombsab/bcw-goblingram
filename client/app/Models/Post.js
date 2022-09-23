@@ -31,7 +31,7 @@ export class Post {
                 aria-controls="offcanvasExample">View comments
               </button>
               <button class="btn btn-dark">Edit</button>
-              <button class="btn btn-danger">Delete</button>
+              <button class="btn btn-danger" onclick="app.postscontroller.deletepost(id)">Delete</button>
             </div>
           </div>
     `

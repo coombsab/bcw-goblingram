@@ -7,7 +7,7 @@ export const CommentSchema = new Schema({
   goblinId: { type: ObjectId, required: true, ref: 'Account' },
   postId: { type: ObjectId, required: true, ref: 'Post' },
   description: { type: String, required: true },
-  voterId: { type: ObjectId, required: true, ref: 'Account' }
+  voterId: { type: ObjectId, ref: 'Account' }
 }, {
   timestamps: true, toJSON: { virtuals: true }
 })

@@ -19,7 +19,7 @@ class PostsService {
 
   }
   async deletePost(id) {
-    const yes = await Pop.confirm('Delete the Car?')
+    const yes = await Pop.confirm('Delete the post?')
     if (!yes) { return }
     await server.delete(`gg/api/posts/${id}`)
     appState.posts = appState.posts.filter(p => p.id != id)

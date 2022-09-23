@@ -1,6 +1,6 @@
 import { appState } from '../AppState.js'
 import { useSockets } from '../env.js'
-import { SocketHandler } from '../utils/SocketHandler.js'
+import { SocketHandler } from '../Utils/SocketHandler.js'
 class SocketService extends SocketHandler {
   constructor() {
     super()

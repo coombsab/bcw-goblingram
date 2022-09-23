@@ -1,4 +1,5 @@
 import { Auth0Provider } from "@bcwdev/auth0provider";
+import { commentsService } from "../services/CommentsService.js";
 import BaseController from "../utils/BaseController.js";
 import { BadRequest } from "../utils/Errors.js";
 export class CommentsController extends BaseController {
@@ -18,7 +19,7 @@ export class CommentsController extends BaseController {
       if (!req.query.goblinId) {
         throw new BadRequest('Must be globlin to comment')
       }
-      const goblins = await CommentService.getGobs(req.query)
+      const goblins = await commentsService.getComments(req.query)
       res.send()
     } catch (error) {
       next(error)

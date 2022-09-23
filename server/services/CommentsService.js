@@ -3,9 +3,9 @@ import { dbContext } from "../db/DbContext.js";
 class CommentsService {
 
   async getComments(query = {}) {
-    // const goblin = await dbContext.Goblins.find(query)
-    // .populate('post').populate('goblin', 'comment')
-    // return Comment
+    const goblin = await dbContext.Comments.find(query)
+      .populate('post').populate('goblin', 'comment')
+    return Comment
 
   }
 

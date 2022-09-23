@@ -19,13 +19,12 @@ CommentSchema.virtual('goblin', {
   ref: 'Account'
 })
 
-//FIXME this is causing problems 
-// CommentSchema.virtual('postId', {
-//   localField: 'postId',
-//   foreignField: '_id',
-//   justOne: true,
-//   ref: 'Post'
-// })
+CommentSchema.virtual('postId', {
+  localField: 'postId',
+  foreignField: '_id',
+  justOne: true,
+  ref: 'Post'
+})
 
 CommentSchema.virtual('voter', {
   localField: 'voterId',

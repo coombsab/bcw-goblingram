@@ -6,6 +6,6 @@ import { ValueSchema } from '../models/Value'
 class DbContext {
   Values = mongoose.model('Value', ValueSchema);
   Account = mongoose.model('Account', AccountSchema);
-  Comment = mongoose.model('Comment', CommentSchema);
+  Comments = mongoose.model('Comment', CommentSchema);
 }
 export const dbContext = new DbContext()

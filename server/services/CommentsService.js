@@ -3,9 +3,9 @@ import { dbContext } from "../db/DbContext.js";
 class CommentsService {
 
   async getComments(query = {}) {
-    const goblin = await dbContext.Goblins.find(query)
-      .populate('post').populate('goblin', 'comment')
-    return Comment
+    // const goblin = await dbContext.Goblins.find(query)
+    // .populate('post').populate('goblin', 'comment')
+    // return Comment
 
   }
 
@@ -15,8 +15,11 @@ class CommentsService {
     const comment = await dbContext.Comments.create(formData)
     await comment.populate('post')
     await comment.populate('comments', 'poster')
-    return Comment
+    return comment
 
+  }
+  getPostById(postId) {
+    throw new Error("Method not implemented.");
   }
 
 

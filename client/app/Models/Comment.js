@@ -28,8 +28,8 @@ export class Comment {
                     and so cute!!!</p>
                 </div>
                 <div class="card-footer d-flex justify-content-between">
-                  <span id="comment-upvotes">UPVOTES</span>
-                  <span id="comment-downvotes">DOWNVOTES</span>
+                  <span>⬆️<span id="comment-upvotes">200</span></span>
+                  <span>⬇️<span id="comment-downvotes">200</span></span>
                 </div>
               </div>
     `

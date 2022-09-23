@@ -44,10 +44,20 @@ class PostsService {
     post.title = postData.title || post.title
     post.imgUrl = postData.imgUrl || post.imgUrl
     post.location = postData.location || post.location
-    post.tags = postData.tags || post.tags
+    post.saucyTag = postData.saucyTag || post.saucyTag
+    post.richTag = postData.richTag || post.richTag
+    post.nastyTag = postData.nastyTag || post.nastyTag
 
     await post.save()
     return post
+  }
+
+  async createUpVote() {
+    
+  }
+
+  async createDownVote() {
+    
   }
 }
 

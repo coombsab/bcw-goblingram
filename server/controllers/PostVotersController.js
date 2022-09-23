@@ -2,10 +2,10 @@ import { Auth0Provider } from "@bcwdev/auth0provider";
 import BaseController from "../utils/BaseController.js";
 
 
-export class CommentVotersController extends BaseController{
+export class PostVotersController extends BaseController{
 
   constructor() {
-    super('/gg/commentvoters')
+    super('/gg/postvoters')
     this.router
     .get("", this.getVotes)
     .use(Auth0Provider.getAuthorizedUserInfo)

@@ -7,8 +7,8 @@ class CommentsService {
     return comments
   }
 
-  async getCommentsByPostId(query = {}) {
-    const comment = await dbContext.Comments.find(query)
+  async getCommentsByPostId(postId) {
+    const comment = await dbContext.Comments.find({ postId })
       .populate('post')
       .populate('goblin', 'name picture')
     return comment
@@ -22,7 +22,13 @@ class CommentsService {
     return comment
   }
 
+ async createUpVote() {
+    
+  }
 
+  async createDownVote() {
+    
+  }
 
 
 

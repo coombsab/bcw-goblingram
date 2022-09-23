@@ -19,13 +19,6 @@ CommentSchema.virtual('goblin', {
   ref: 'Account'
 })
 
-// CommentSchema.virtual('postId', {
-//   localField: 'postId',
-//   foreignField: '_id',
-//   justOne: true,
-//   ref: 'Post'
-// })
-
 CommentSchema.virtual('voter', {
   localField: 'voterId',
   foreignField: '_id',
@@ -33,5 +26,10 @@ CommentSchema.virtual('voter', {
   ref: 'Voter'
 })
 
-
+CommentSchema.virtual("post", {
+  localField: "postId",
+  foreignField: "_id",
+  justOne: true,
+  ref: "Post"
+})
 

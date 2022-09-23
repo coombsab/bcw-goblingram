@@ -8,7 +8,9 @@ export const PostSchema = new Schema({
   goblinId: { type: OjbectId, required: true },
   upVoterId: { type: OjbectId },
   downVoterId: { type: OjbectId },
-  tags: { type: Array, required: true }
+  saucyTag: { type: String, default: "" },
+  richTag: { type: String, default: "" },
+  nastyTag: { type: String, default: "" }
 },
 { timestamps: true, toJSON: {virtuals: true }})
 

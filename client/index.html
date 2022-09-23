@@ -10,6 +10,9 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.0.96/css/materialdesignicons.min.css"
     integrity="sha512-fXnjLwoVZ01NUqS/7G5kAnhXNXat6v7e3M9PhoMHOTARUMCaf5qNO84r5x9AFf5HDzm3rEZD8sb/n6dZ19SzFA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style/main.css">
   <title>bcw-goblingram</title>
 </head>
@@ -46,7 +49,7 @@
     <div class="container-fluid">
       <div class="row text-center bg-dark text-light">
         <div class="col-12">
-          <div class="goblingram">Goblingram</div>
+          <div class="goblingram">GoblinGram</div>
         </div>
       </div>
       <div class="row bg-dark text-light p-2">
@@ -87,7 +90,7 @@
               src="https://cdn.dribbble.com/users/528238/screenshots/16410846/media/7e5e6c526d24fafcdb96246196846f6d.png?compress=1&resize=400x300&vertical=top"
               alt="" class="img-fluid rounded-top">
             <div class="card-body text-center d-flex justify-content-between">
-              <button>add comment
+              <button data-bs-toggle="modal" data-bs-target="#addCommentModal">add comment
               </button>
               <button>view comments
               </button>
@@ -160,6 +163,29 @@
     </div>
   </div>
   <!-- ANCHOR POST MODAL END -->
+
+  <!-- ANCHOR COMMENT MODAL START -->
+  <div class="modal fade" id="addCommentModal" tabindex="-1" aria-labelledby="addCommentModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addCommentModalLabel">Add comment to post</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form onsubmit="app.postController.addComment()">
+          <div class="modal-body">
+            <label for="comment-description">Add Comment</label>
+            <textarea name="description" id="comment-description" cols="50" rows="20"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- ANCHOR COMMENT MODAL END -->
 
   <span>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

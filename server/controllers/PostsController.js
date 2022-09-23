@@ -9,6 +9,7 @@ export class PostsController extends BaseController {
       .get("", this.getPosts)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post("", this.createPost)
+      .delete("/:id", this.removePost)
   }
 
   async getPosts(req, res, next) {
@@ -30,5 +31,15 @@ export class PostsController extends BaseController {
     catch(error) {
       next(error)
     }
+  }
+
+  async removePost(req, res, next) {
+    try {
+      const removePost = await postsService.removePost(req.params.id, req.userInfo)
+      res.send(removePost)
+    } catch (error) {
+      next(error)
+    }
+
   }
 }

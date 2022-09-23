@@ -13,7 +13,7 @@ export class Post {
   }
   get PostTemplate() {
     return /*html*/ `
-              <div class="card">
+          <div class="card">
             <div class="card-body d-flex justify-content-between">
               <h4 class="text-center" id="post-title">POST NAME</h4>
               <span id="post-date">DATE/TIME POSTED</span>
@@ -30,6 +30,8 @@ export class Post {
               <button class="btn btn-dark" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
                 aria-controls="offcanvasExample">View comments
               </button>
+              <button class="btn btn-dark">Edit</button>
+              <button class="btn btn-danger">Delete</button>
             </div>
           </div>
     `

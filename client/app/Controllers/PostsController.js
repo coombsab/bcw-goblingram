@@ -27,14 +27,15 @@ export class PostsController {
     }
   }
 
-  async createPosts() {
+  async createPost() {
     try {
       // @ts-ignore
       window.event.preventDefault()
       // @ts-ignore
       const form = window.event.target
       const formData = getFormData(form)
-      await postsService.createPosts(formData)
+      console.log(formData)
+      await postsService.createPost(formData)
       // @ts-ignore
       form.reset()
       // @ts-ignore
@@ -43,6 +44,7 @@ export class PostsController {
     } catch (error) {
       Pop.error(error.message)
     }
+
   }
 
   //TODO edit and delete 

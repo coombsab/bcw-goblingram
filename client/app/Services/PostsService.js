@@ -12,7 +12,7 @@ class PostsService {
 
 
   }
-  async createPosts(formData) {
+  async createPost(formData) {
     const res = await server.post('gg/api/posts', formData)
     console.log(res.data)
     appState.posts = [...appState.posts, new Post(res.data)]

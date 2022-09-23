@@ -35,8 +35,19 @@ class PostsService {
     return posts
   }
 
-  async editPost() {
-    
+  async editPost(postData, userInfo) {
+    const post = await this.getPostById(postData.id)
+
+    if (userInfo.id != post.goblinId) {
+      throw new Forbidden('Not your post!')
+    }
+    post.title = postData.title || post.title
+    post.imgUrl = postData.imgUrl || post.imgUrl
+    post.location = postData.location || post.location
+    post.tags = postData.tags || post.tags
+
+    await post.save()
+    return post
   }
 }
 

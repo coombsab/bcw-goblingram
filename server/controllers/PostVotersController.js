@@ -1,6 +1,7 @@
 import { Auth0Provider } from "@bcwdev/auth0provider";
 import { postsService } from "../services/PostsService.js";
 import BaseController from "../utils/BaseController.js";
+import { BadRequest } from "../utils/Errors.js";
 
 
 export class PostVotersController extends BaseController{
@@ -14,7 +15,11 @@ export class PostVotersController extends BaseController{
   }
   async getUpVotes(req, res, next) {
     try {
-      
+      if (!req.query.postId) {
+        throw new BadRequest('Provide postId query param. Thx.')
+      }
+      const upVotes = await postsService.getUpVotes(req.query)
+      res.send(upVotes)
     }catch (error) {
     next(error)
     }

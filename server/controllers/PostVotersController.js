@@ -9,9 +9,11 @@ export class PostVotersController extends BaseController{
   constructor() {
     super('/gg/api/postvoters')
     this.router
-    .get('', this.getUpVotes)
+      .get('', this.getUpVotes)
+      .get('', this.getDownVotes)
     .use(Auth0Provider.getAuthorizedUserInfo)
-    .post('', this.createUpVote)
+      .post('', this.createUpVote)
+      .post('', this.createDownVote)
   }
   async getUpVotes(req, res, next) {
     try {
@@ -24,7 +26,6 @@ export class PostVotersController extends BaseController{
     next(error)
     }
   }
-
   async createUpVote(req, res, next) {
     try {
       const upVoteData = {
@@ -37,7 +38,28 @@ export class PostVotersController extends BaseController{
       next(error)
     }
   }
-
-
+  async createDownVote(req, res, next) {
+    try {
+      const downVoteData = {
+        goblinId: req.userInfo.id,
+        postId: req.body.postId
+      }
+      const downVote = await postsService.createDownVote(downVoteData)
+      res.send(downVote)
+      } catch (error) {
+      next(error)
+    }
+  }
+  async getDownVotes(req, res, next) {
+    try {
+      if (!req.query.postId) {
+        throw new BadRequest('Provide postId query param. Thx.')
+      }
+      const downVotes = await postsService.getDownVotes(req.query)
+      res.send(downVotes)
+    }catch (error) {
+    next(error)
+    }
+  }
 
 }

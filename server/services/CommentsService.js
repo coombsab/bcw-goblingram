@@ -56,15 +56,36 @@ class CommentsService {
     return comment
   }
 
-  async createUpVote() {
+  async createUpVote(upVoteData) {
+  const post = await this.getCommentById(upVoteData.postId)
+    const upVote = await dbContext.PostUpVoters.create(upVoteData)
+    await upVote.populate('comment')
+    await upVote.populate('goblin', 'name picture')
 
+    return upVote
   }
 
-  async createDownVote() {
-
+  async getUpVote(query = {}) {
+    const upVotes = await dbContext.CommentUpVoters.find(query)
+      .populate('comment')
+      .populate('goblin', 'name picture')
+    return upVotes
   }
 
+  async createDownVote(downVoteData) {
+const post = await this.getCommentById(downVoteData.postId)
+    const downVote = await dbContext.CommentDownVoters.create(downVoteData)
+    await downVote.populate('comment')
+    await downVote.populate('goblin', 'name picture')
 
+    return downVote
+  }
+
+  async getDownVote(query = {}) {
+  const downVotes = await dbContext.CommentDownVoters.find(query)
+      .populate('goblin', 'name picture')
+    return downVotes
+  }
 
 }
 export const commentsService = new CommentsService()

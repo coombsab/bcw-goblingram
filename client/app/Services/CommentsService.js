@@ -6,11 +6,7 @@ class CommentsService {
   async addComment(formData) {
     const res = server.create('gg/api/comments', formData)
     appState.comments = [...appState.comments, new Comment(res.data)]
-
-
   }
-
-
 }
 
 export const commentsService = new CommentsService()

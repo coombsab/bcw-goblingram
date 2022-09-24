@@ -28,7 +28,6 @@ export class CommentsController {
     } catch (error) {
       console.error(error)
       Pop.error(error.message)
-
     }
   }
 

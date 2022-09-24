@@ -3,11 +3,11 @@ const ObjectId = Schema.Types.ObjectId
 export const CommentUpVoterSchema = new Schema({
   goblinId: { type: ObjectId, required: true, ref: 'Account' },
   postId: { type: ObjectId, required: true, ref: 'Post' },
-},)
+},{ timestamps: true, toJSON: { virtuals: true }})
 
 
-CommentUpVoterSchema.virtual('upVoter', {
-  localField: 'upVoterId',
+CommentUpVoterSchema.virtual('goblin', {
+  localField: 'goblinId',
   foreignField: '_id',
   justOne: true,
   ref: 'Account'
@@ -20,4 +20,4 @@ CommentUpVoterSchema.virtual('post', {
   ref: 'Post'
 })
 
-CommentUpVoterSchema.index({ upVoterId: 1, postId: 1 }, { unique: true })
+CommentUpVoterSchema.index({ goblinId: 1, postId: 1 }, { unique: true })

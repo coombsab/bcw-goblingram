@@ -6,8 +6,8 @@ export const PostDownVoterSchema = new Schema({
 },)
 
 
-PostDownVoterSchema.virtual('downVoter', {
-  localField: 'downVoterId',
+PostDownVoterSchema.virtual('goblin', {
+  localField: 'goblinId',
   foreignField: '_id',
   justOne: true,
   ref: 'Account'
@@ -20,4 +20,4 @@ PostDownVoterSchema.virtual('post', {
   ref: 'Post'
 })
 
-PostDownVoterSchema.index({ downVoterId: 1, postId: 1 }, { unique: true })
+PostDownVoterSchema.index({ goblinId: 1, postId: 1 }, { unique: true })

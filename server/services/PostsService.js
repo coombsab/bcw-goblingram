@@ -50,14 +50,12 @@ class PostsService {
     await post.save()
     return post
   }
-
 async getUpVotes(query = {}) {
     const upVotes = await dbContext.PostUpVoters.find(query)
-      .populate('upVoter', 'name picture')
+      .populate('post')
+      .populate('goblin', 'name picture')
     return upVotes
-    
   }
-
   async createUpVote(upVoteData) {
     const post = await this.getPostById(upVoteData.postId)
     const upVote = await dbContext.PostUpVoters.create(upVoteData)
@@ -66,15 +64,18 @@ async getUpVotes(query = {}) {
 
     return upVote
   }
-
   async getDownVotes(query = {}) {
     const downVotes = await dbContext.PostDownVoters.find(query)
     .populate('downVoter', 'name picture')
     return downVotes
   }
-  async createDownVote() {
-    
+  async createDownVote(downVoteData) {
+    const post = await this.getPostById(downVoteData.postId)
+    const downVote = await dbContext.PostDownVoters.create(downVoteData)
+    await downVote.populate('post')
+    await downVote.populate('goblin', 'name picture')
+
+    return downVote
   }
 }
-
 export const postsService = new PostsService()

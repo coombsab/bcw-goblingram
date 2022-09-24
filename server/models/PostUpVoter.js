@@ -5,7 +5,6 @@ export const PostUpVoterSchema = new Schema({
   postId: { type: ObjectId, required: true, ref: 'Post' },
 },)
 
-
 PostUpVoterSchema.virtual('goblin', {
   localField: 'goblinId',
   foreignField: '_id',

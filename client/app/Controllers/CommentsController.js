@@ -8,11 +8,6 @@ export class CommentsController {
 
   }
 
-
-
-
-
-
   async addComment() {
     try {
       // @ts-ignore
@@ -20,20 +15,12 @@ export class CommentsController {
       // @ts-ignore
       let form = window.event.target
       let formData = getFormData(form)
-
       // @ts-ignore
       formData.postId = appState.activePost.id
-      console.log('comment recieved', formData)
       await commentsService.addComment(formData)
     } catch (error) {
       console.error(error)
       Pop.error(error.message)
     }
   }
-
-
-
-
-
-
 }

@@ -22,8 +22,8 @@ export class Post {
             <div class="d-flex justify-content-between align-items-center gap-2">
               <span id="post-date">${this.location}</span>
               <span id="post-heart" class="fs-3"><img src="${this.goblin.picture}" alt="${this.goblin.name}"  title="${this.goblin.name}"  class="gob-pic"></span>
-              <span id="post-upvotes" class="fs-3 selectable">⬆️</span><span>${this.upVotes}</span>
-              <span id="post-downvotes" class="fs-3 selectable">⬇️</span><span>${this.downVotes}</span>
+              <span id="post-upvotes" class="fs-3 selectable" onclick="app.postsController.addUpVote('${this.id}')">⬆️</span><span>${this.upVotes}</span>
+              <span id="post-downvotes" class="fs-3 selectable" onclick="app.postsController.addDownVote('${this.id}')">⬇️</span><span>${this.downVotes}</span>
               </div>
             </div>
             <img

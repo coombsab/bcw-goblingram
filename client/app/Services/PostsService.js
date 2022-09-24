@@ -5,6 +5,13 @@ import { Pop } from "../Utils/Pop.js";
 import { server } from "./AxiosService.js"
 
 class PostsService {
+  async addUpVote(postId) {
+    const res = await server.post("account/postupvotes")
+  }
+  async addDownVote(postId) {
+    const res = await server.post("account/postdownvotes")
+    
+  }
   async setActivePost(postId) {
     // @ts-ignore
     appState.activePost = appState.posts.find(p => p.id = postId)

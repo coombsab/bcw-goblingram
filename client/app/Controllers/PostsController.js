@@ -53,6 +53,26 @@ export class PostsController {
 
   }
 
+  async addUpVote(postId) {
+    try {
+      await postsService.addUpVote(postId)
+    }
+    catch(error) {
+      console.error('[functionName]', error)
+      Pop.error(error.message)
+    }
+  }
+
+  async addDownVote(postId) {
+    try {
+      await postsService.addDownVote(postId)
+    }
+    catch(error) {
+      console.error('[functionName]', error)
+      Pop.error(error.message)
+    }
+  }
+
 
 
 

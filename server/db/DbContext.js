@@ -14,10 +14,9 @@ class DbContext {
   Comments = mongoose.model('Comment', CommentSchema);
   Posts = mongoose.model('Post', PostSchema);
   CommentDownVoters = mongoose.model('CommentDownVoter', CommentDownVoterSchema);
-  CommentUpVoters = mongoose.model('CommentUpVoer', CommentUpVoterSchema);
+  CommentUpVoters = mongoose.model('CommentUpVoter', CommentUpVoterSchema);
   PostDownVoters = mongoose.model('PostDownVoter', PostDownVoterSchema);
   PostUpVoters = mongoose.model('PostUpVoter', PostUpVoterSchema);
-  
 
 }
 export const dbContext = new DbContext()

@@ -40,17 +40,10 @@ export class CommentsController {
       let formData = getFormData(form)
       // @ts-ignore
       formData.postId = appState.activePost.id
-      console.log('comment received', formData)
       await commentsService.addComment(formData)
     } catch (error) {
       console.error(error)
       Pop.error(error.message)
     }
   }
-
-
-
-
-
-
 }

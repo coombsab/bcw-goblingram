@@ -15,13 +15,13 @@ function _drawComments() {
 
 export class CommentsController {
   constructor() {
-    this.getComments()
+    // this.getComments()
     appState.on('comments', _drawComments)
   }
 
-  async getComments() {
+  async getComments(postId) {
     try {
-      await commentsService.getComments()
+      await commentsService.getComments(postId)
     } catch (error) {
       console.error('[getComments]', error)
       Pop.error(error.message)

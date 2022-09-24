@@ -32,7 +32,7 @@ export class Post {
               >Add comment
               </button>
               <button class="btn btn-dark" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
-                aria-controls="offcanvasExample">View comments
+                aria-controls="offcanvasExample" onclick="app.commentsController.getComments('${this.id}')">View comments
               </button>
               <button class="btn btn-dark">Edit</button>
               // <button class="btn btn-danger" onclick="app.postsController.deletePost('${this.id}')">Delete</button>

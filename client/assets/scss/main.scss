@@ -24,5 +24,11 @@ main {
 
 .card>img {
   height: 30vh;
-  object-fit: cover;
+  object-fit: contain;
+}
+
+
+.gob-pic {
+  max-height: 3.5vh;
+  border-radius: 50%;
 }

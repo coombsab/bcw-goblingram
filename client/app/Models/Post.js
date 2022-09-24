@@ -10,6 +10,7 @@ export class Post {
     this.date = data.date
     this.time = data.time
     this.isFavorite = data.isFavorite
+    this.goblin = data.goblin
   }
   get PostTemplate() {
     return /*html*/ `
@@ -19,7 +20,7 @@ export class Post {
             <h4 class="text-center" id="post-title">${this.title}</h4>
             <div class="d-flex justify-content-between">
               <span id="post-date">${this.location}</span>
-              <span id="post-heart" class="fs-3">💖</span>
+              <span id="post-heart" class="fs-3"><img src="${this.goblin.picture}" alt="${this.goblin.name}"  title="${this.goblin.name}"  class="gob-pic"></span>
               <span id="post-upvotes" class="fs-3">⬆️</span><span>20</span>
               <span id="post-downvotes" class="fs-3">⬇️</span><span>500</span>
               </div>

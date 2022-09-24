@@ -6,8 +6,7 @@ export class Comment {
     this.id = data.id
     this.voterId = data.id
 
-    this.date = data.id
-    this.time = data.id
+    this.goblin = data.goblin
 
 
   }
@@ -17,7 +16,7 @@ export class Comment {
                   <div class="card">
                 <div class="card-header d-flex justify-content-between">
                   <span id="comment-date">DATE/TIME POSTED</span>
-                  <span id="comment-heart">💖</span>
+                  <span id="comment-heart" ><img src="${this.goblin.picture}" alt="${this.goblin.name}"  title="${this.goblin.name}"  class="gob-pic"></span>
                 </div>
                 <!-- <div class="card-body d-flex justify-content-between">
                 <h4 class="text-center">POST NAME</h4>

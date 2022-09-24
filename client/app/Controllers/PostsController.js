@@ -47,6 +47,16 @@ export class PostsController {
 
   }
 
+  setActivePost(postId) {
+
+    postsService.setActivePost(postId)
+
+  }
+
+
+
+
+
   //TODO edit and delete 
   async deletePost(id) {
     try {
@@ -55,9 +65,9 @@ export class PostsController {
       console.error('[DeletingPost]', error)
       Pop.error(error)
     }
-
-
   }
+
+
 
 
 

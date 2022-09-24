@@ -5,6 +5,11 @@ import { Pop } from "../Utils/Pop.js";
 import { server } from "./AxiosService.js"
 
 class PostsService {
+  setActivePost(postId) {
+    // @ts-ignore
+    appState.activePost = appState.posts.find(p => p.id = postId)
+    console.log(this.setActivePost(postId))
+  }
   async getPosts() {
     const res = await server.get('gg/api/posts')
     console.log(res.data);

@@ -13,14 +13,18 @@ export class Post {
   }
   get PostTemplate() {
     return /*html*/ `
-          <div class="card">
-            <div class="card-body d-flex justify-content-between">
-              <h4 class="text-center" id="post-title">${this.title}</h4>
+          <div class="card col-md-4 col-12">
+          
+            <div class="card-header ">
+            <h4 class="text-center" id="post-title">${this.title}</h4>
+            <div class="d-flex justify-content-between">
               <span id="post-date">${this.location}</span>
               <span id="post-heart" class="fs-3">💖</span>
               <span id="post-upvotes" class="fs-3">⬆️</span><span>20</span>
               <span id="post-downvotes" class="fs-3">⬇️</span><span>500</span>
+              </div>
             </div>
+           
             <img
               src="${this.imgUrl}"
               alt="" class="img-fluid rounded-top" id="post-image">

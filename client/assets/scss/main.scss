@@ -10,7 +10,7 @@ body {
   min-height: 100vh;
   background-color: $body-bg;
   font-family: 'Rubik', sans-serif;
-  
+
 }
 
 main {
@@ -22,3 +22,7 @@ main {
 }
 
 
+.card>img {
+  height: 30vh;
+  object-fit: cover;
+}

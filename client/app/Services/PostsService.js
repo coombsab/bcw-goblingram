@@ -5,6 +5,7 @@ import { Pop } from "../Utils/Pop.js";
 import { server } from "./AxiosService.js"
 
 class PostsService {
+  // TODO Add up vote and add down vote currently give a bad request error, needs worked on
   async addUpVote(postId) {
     const res = await server.post("account/postupvotes")
   }

@@ -4,7 +4,9 @@ import { server } from './AxiosService.js'
 class CommentsService {
 
   async addComment(formData) {
-    const res = server.create('gg/api/comments', formData)
+    console.log(formData)
+    const res = server.post('gg/api/comments', formData)
+    console.log('res', res.data)
     appState.comments = [...appState.comments, new Comment(res.data)]
 
 

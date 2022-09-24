@@ -20,10 +20,9 @@ export class CommentsController {
       // @ts-ignore
       let form = window.event.target
       let formData = getFormData(form)
-
       // @ts-ignore
       formData.postId = appState.activePost.id
-      console.log('comment recieved', formData)
+      console.log('comment received', formData)
       await commentsService.addComment(formData)
     } catch (error) {
       console.error(error)

@@ -8,6 +8,7 @@ class PostsService {
   async setActivePost(postId) {
     // @ts-ignore
     appState.activePost = appState.posts.find(p => p.id = postId)
+
   }
   async getPosts() {
     const res = await server.get('gg/api/posts')

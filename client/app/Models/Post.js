@@ -15,14 +15,13 @@ export class Post {
   get PostTemplate() {
     return /*html*/ `
           <div class="card col-md-4 col-12">
-          
             <div class="card-header bg-dark text-light">
             <h4 class="text-center" id="post-title">${this.title}</h4>
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between align-items-center">
               <span id="post-date">${this.location}</span>
               <span id="post-heart" class="fs-3"><img src="${this.goblin.picture}" alt="${this.goblin.name}"  title="${this.goblin.name}"  class="gob-pic"></span>
-              <span id="post-upvotes" class="fs-3">⬆️</span><span>20</span>
-              <span id="post-downvotes" class="fs-3">⬇️</span><span>500</span>
+              <span id="post-upvotes" class="fs-3 selectable">⬆️</span><span>20</span>
+              <span id="post-downvotes" class="fs-3 selectable">⬇️</span><span>500</span>
               </div>
             </div>
             <img

@@ -10,6 +10,7 @@ export class AccountController extends BaseController {
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get('', this.getUserAccount)
       .post('/postupvote', this.createPostUpVote)
+      .get('/postupvotes', this.getPostUpVotes)
   }
 
   async getUserAccount(req, res, next) {
@@ -31,16 +32,16 @@ export class AccountController extends BaseController {
     }
   }
 
-  // async getPostUpVotes(req, res, next) {
-  //   try {
-  //     const creeps = await birdsService.getCreeps({
-  //       creeperId: req.userInfo.id
-  //     })
-  //     res.send(creeps)
-  //   } catch (error) {
-  //     next(error)
-  //   }
-  // }
+  async getPostUpVotes(req, res, next) {
+    try {
+      const upVotes = await postsService.getUpVotes({
+        goblinId: req.userInfo.id
+      })
+      res.send(upVotes)
+    } catch (error) {
+      next(error)
+    }
+  }
   
   
 }

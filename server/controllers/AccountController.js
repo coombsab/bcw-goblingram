@@ -12,6 +12,8 @@ export class AccountController extends BaseController {
       .get('', this.getUserAccount)
       .post('/postupvotes', this.createPostUpVote)
       .get('/postupvotes', this.getPostUpVotes)
+      .post('/postdownvotes', this.createPostDownVote)
+      .get('/postdownvotes', this.getPostDownVotes)
   }
 
   async getUserAccount(req, res, next) {
@@ -26,7 +28,6 @@ export class AccountController extends BaseController {
     async createPostUpVote(req, res, next) {
     try {
       req.body.goblinId = req.userInfo.id
-      logger.log("help im not working", req.body)
       const upVote = await postsService.createUpVote(req.body)
       res.send(upVote)
     } catch (error) {
@@ -45,5 +46,25 @@ export class AccountController extends BaseController {
     }
   }
   
+  async createPostDownVote(req, res, next) {
+    try {
+      req.body.goblinId = req.userInfo.id
+      const downVote = await postsService.createDownVote(req.body)
+      res.send(downVote)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async getPostDownVotes(req, res, next) {
+    try {
+      const downVotes = await postsService.getDownVotes({
+        goblinId: req.userInfo.id
+      })
+      res.send(downVotes)
+    } catch (error) {
+      next(error)
+    }
+  }
   
 }

@@ -4,8 +4,6 @@ export class Comment {
     this.postId = data.postId
     this.description = data.description
     this.id = data.id
-    this.voterId = data.id
-
     this.goblin = data.goblin
 
 

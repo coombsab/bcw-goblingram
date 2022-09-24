@@ -24,7 +24,6 @@ export class Post {
               <span id="post-downvotes" class="fs-3">⬇️</span><span>500</span>
               </div>
             </div>
-           
             <img
               src="${this.imgUrl}"
               alt="" class="img-fluid rounded-top" id="post-image">

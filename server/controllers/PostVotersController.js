@@ -7,7 +7,7 @@ import { BadRequest } from "../utils/Errors.js";
 export class PostVotersController extends BaseController{
 
   constructor() {
-    super('/gg/postvoters')
+    super('/gg/api/postvoters')
     this.router
     .get('', this.getUpVotes)
     .use(Auth0Provider.getAuthorizedUserInfo)

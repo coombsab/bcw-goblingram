@@ -77,6 +77,4 @@ async getUpVotes(query = {}) {
   }
 }
 
-
-
 export const postsService = new PostsService()

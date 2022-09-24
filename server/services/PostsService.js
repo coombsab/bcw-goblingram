@@ -30,8 +30,8 @@ class PostsService {
   async getPosts() {
     const posts = dbContext.Posts.find()
       .populate("goblin", "name picture")
-    // .populate("upVoter", "name picture")
-    // .populate("downVoter", "name picture")
+    .populate("downVotes")
+    .populate("upVotes")
     return posts
   }
   async editPost(postData, userInfo) {

@@ -10,11 +10,11 @@ class PostsService {
     await post.remove()
     return post
   }
- async getPostById(postId) {
+  async getPostById(postId) {
     const post = await dbContext.Posts.findById(postId)
       .populate('goblin', "name picture")
-      // .populate("upVoter", "name picture")
-      // .populate("downVoter", "name picture")
+    // .populate("upVoter", "name picture")
+    // .populate("downVoter", "name picture")
     if (!post) {
       throw new BadRequest('Bad Post Id')
     }
@@ -30,8 +30,8 @@ class PostsService {
   async getPosts() {
     const posts = dbContext.Posts.find()
       .populate("goblin", "name picture")
-      // .populate("upVoter", "name picture")
-      // .populate("downVoter", "name picture")
+    // .populate("upVoter", "name picture")
+    // .populate("downVoter", "name picture")
     return posts
   }
   async editPost(postData, userInfo) {
@@ -50,7 +50,8 @@ class PostsService {
     await post.save()
     return post
   }
-async getUpVotes(query = {}) {
+
+  async getUpVotes(query = {}) {
     const upVotes = await dbContext.PostUpVoters.find(query)
       .populate('post')
       .populate('goblin', 'name picture')
@@ -66,7 +67,7 @@ async getUpVotes(query = {}) {
   }
   async getDownVotes(query = {}) {
     const downVotes = await dbContext.PostDownVoters.find(query)
-    .populate('downVoter', 'name picture')
+      .populate('downVoter', 'name picture')
     return downVotes
   }
   async createDownVote(downVoteData) {

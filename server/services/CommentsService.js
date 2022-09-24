@@ -47,7 +47,6 @@ class CommentsService {
       .populate('post')
       .populate('goblin', 'name picture')
     return comment
-
   }
 
   async createComment(formData) {
@@ -57,12 +56,12 @@ class CommentsService {
     return comment
   }
 
- async createUpVote() {
-    
+  async createUpVote() {
+
   }
 
   async createDownVote() {
-    
+
   }
 
 

@@ -8,11 +8,7 @@ class CommentsService {
     const res = server.post('gg/api/comments', formData)
     console.log('res', res.data)
     appState.comments = [...appState.comments, new Comment(res.data)]
-
-
   }
-
-
 }
 
 export const commentsService = new CommentsService()

@@ -23,9 +23,7 @@ export class Comment {
                 <h4 class="text-center">POST NAME</h4>
               </div> -->
                 <div class="card-body d-flex justify-content-between">
-                  <p id="comment-content">hello this is a comment about how awesome goblins are. they are green and
-                    little
-                    and so cute!!!</p>
+                  <p id="comment-content">${this.description}</p>
                 </div>
                 <div class="card-footer d-flex justify-content-between">
                   <span>⬆️<span id="comment-upvotes">200</span></span>

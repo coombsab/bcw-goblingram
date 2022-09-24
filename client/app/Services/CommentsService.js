@@ -9,6 +9,13 @@ class CommentsService {
     console.log('res', res.data)
     appState.comments = [...appState.comments, new Comment(res.data)]
   }
+
+
+  async getComments() {
+    const res = await server.get('gg/api/comments')
+    console.log(res.data);
+    appState.comments = res.data.map(c => new Comment(c))
+  }
 }
 
 export const commentsService = new CommentsService()

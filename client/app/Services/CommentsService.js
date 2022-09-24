@@ -5,7 +5,7 @@ class CommentsService {
 
   async addComment(formData) {
     console.log(formData)
-    const res = server.post('gg/api/comments', formData)
+    const res = await server.post('gg/api/comments', formData)
     console.log('res', res.data)
     appState.comments = [...appState.comments, new Comment(res.data)]
   }

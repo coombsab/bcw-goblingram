@@ -47,7 +47,7 @@ export class PostsController {
 
   }
 
-  setActivePost(postId) {
+  async setActivePost(postId) {
 
     postsService.setActivePost(postId)
 

@@ -28,7 +28,7 @@ export class Post {
               src="${this.imgUrl}"
               alt="" class="img-fluid rounded-top" id="post-image">
             <div class="card-body text-center d-flex justify-content-between">
-              <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#addCommentModal" onclick="app.postsContoller.setActivePost('${this.id}')"
+              <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#addCommentModal" onclick="app.postsController.setActivePost('${this.id}')"
               >Add comment
               </button>
               <button class="btn btn-dark" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"

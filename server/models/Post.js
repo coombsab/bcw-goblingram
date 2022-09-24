@@ -22,17 +22,17 @@ PostSchema.virtual("goblin", {
   ref: "Account"
 })
 
-PostSchema.virtual("upVoter", {
-  localField: "upVoterId",
-  foreignField: "_id",
-  justOne: true,
-  ref: "Account"
+PostSchema.virtual("upVotes", {
+  localField: "_id",
+  foreignField: "postId",
+  count: true,
+  ref: "PostUpVoter"
 })
 
-PostSchema.virtual("downVoter", {
-  localField: "downVoterId",
-  foreignField: "_id",
-  justOne: true,
-  ref: "Account"
+PostSchema.virtual("downVotes", {
+  localField: "_id",
+  foreignField: "postId",
+  count: true,
+  ref: "PostDownVoter"
 })
 

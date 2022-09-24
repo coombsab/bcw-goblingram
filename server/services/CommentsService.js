@@ -29,7 +29,7 @@ class CommentsService {
   }
 
   async getCommentById(commentId) {
-    const comment = await dbContext.Comments.findById(commentId)
+    const comment = await dbContext.Comments.findById(commentId).populate("goblin", "name picture").populate("post")
 
     if (!comment) {
       throw new BadRequest("Cannot get Comment, Invalid ID")

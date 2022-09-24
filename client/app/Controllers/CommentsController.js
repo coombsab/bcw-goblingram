@@ -41,6 +41,9 @@ export class CommentsController {
       // @ts-ignore
       formData.postId = appState.activePost.id
       await commentsService.addComment(formData)
+      // @ts-ignore
+      const offcanvas = bootstrap.Offcanvas.getOrCreateInstance('offcanvasExample')
+      offcanvas.hide()
     } catch (error) {
       console.error(error)
       Pop.error(error.message)

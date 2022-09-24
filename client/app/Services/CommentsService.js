@@ -10,6 +10,7 @@ class CommentsService {
 
 
   async getComments(postId) {
+    appState.comments = []
     appState.activePost = appState.posts.find(p => p.id == postId)
     console.log(appState.activePost)
     const res = await server.get(`gg/api/comments/${appState.activePost.id}`)

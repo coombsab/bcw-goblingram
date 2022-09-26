@@ -18,7 +18,7 @@ export class Post {
     return /*html*/ `
       <div class="col-md-4 col-12 p-3">
           <div class="card">
-            <div class="card-header bg-dark text-light">
+            <div class="card-header bg-dark text-light mb-3">
               <h4 class="text-center" id="post-title">${this.title}</h4>
               <div class="d-flex justify-content-between">
                 <div class="d-flex align-items-center gap-2">

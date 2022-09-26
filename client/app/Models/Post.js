@@ -16,14 +16,21 @@ export class Post {
   }
   get PostTemplate() {
     return /*html*/ `
-          <div class="card col-md-4 col-12 mb-3">
+      <div class="col-md-4 col-12 p-3">
+          <div class="card">
             <div class="card-header bg-dark text-light">
-            <h4 class="text-center" id="post-title">${this.title}</h4>
-            <div class="d-flex justify-content-between align-items-center gap-2">
-              <span id="post-date">${this.location}</span>
-              <span id="post-heart" class="fs-3"><img src="${this.goblin.picture}" alt="${this.goblin.name}"  title="${this.goblin.name}"  class="gob-pic"></span>
-              <span id="post-upvotes" class="fs-3 selectable" onclick="app.postsController.addUpVote('${this.id}')">⬆️</span><span>${this.upVotes}</span>
-              <span id="post-downvotes" class="fs-3 selectable" onclick="app.postsController.addDownVote('${this.id}')">⬇️</span><span>${this.downVotes}</span>
+              <h4 class="text-center" id="post-title">${this.title}</h4>
+              <div class="d-flex justify-content-between">
+                <div class="d-flex align-items-center gap-2">
+                  <span id="post-heart" class="fs-3"><img src="${this.goblin.picture}" alt="${this.goblin.name}"  title="${this.goblin.name}"  class="gob-pic"></span>
+                  <span id="post-date">${this.location}</span>
+                </div>
+                <div class="d-flex align-items-center gap-1">
+                  <span>${this.upVotes}</span>
+                  <span id="post-upvotes" class="fs-3 selectable" onclick="app.postsController.addUpVote('${this.id}')">⬆️</span>
+                  <span id="post-downvotes" class="fs-3 selectable" onclick="app.postsController.addDownVote('${this.id}')">⬇️</span>
+                  <span>${this.downVotes}</span>
+                </div>
               </div>
             </div>
             <img
@@ -39,6 +46,7 @@ export class Post {
               <button class="btn btn-secondary text-light">Edit</button>
               <button class="btn btn-danger" onclick="app.postsController.deletePost('${this.id}')">Delete</button>
             </div>
+          </div>
           </div>
     `
   }
